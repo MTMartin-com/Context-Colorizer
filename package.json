@@ -1,0 +1,86 @@
+{
+  "name": "context-colorizer",
+  "displayName": "Context Colorizer",
+  "description": "Visually classify files and folders with custom colors from the context menu without affecting Git status.",
+  "version": "1.0.0",
+  "publisher": "mtmartincom",
+  "author": {
+    "name": "MTMartin",
+    "email": "info@mtmartin.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com"
+  },
+  "funding": {
+    "type": "custom",
+    "url": "https://paypal.me/MTMartincom"
+  },
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "color",
+    "folder",
+    "explorer",
+    "organization",
+    "rust"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "context-colorizer.assignColor",
+        "title": "Colorizer: Classify Item..."
+      },
+      {
+        "command": "context-colorizer.undo",
+        "title": "Colorizer: Undo Last Classification"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "context-colorizer.assignColor",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "context-colorizer.undo",
+        "key": "cmd+z",
+        "mac": "cmd+z",
+        "win": "ctrl+z",
+        "when": "filesExplorerFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.125.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "typescript-eslint": "^8.61.1",
+    "eslint": "^10.5.0",
+    "typescript": "^6.0.3",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}
