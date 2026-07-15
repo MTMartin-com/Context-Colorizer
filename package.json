@@ -2,15 +2,20 @@
   "name": "context-colorizer",
   "displayName": "Context Colorizer",
   "description": "Visually classify files and folders with custom colors from the context menu without affecting Git status.",
-  "version": "1.0.0",
-  "publisher": "mtmartincom",
+  "version": "1.0.3",
+  "publisher": "mtmartin-com",
+  "sponsor": {
+    "url": "https://paypal.me/MTMartincom"
+  },
+  "icon": "images/icon.png",
   "author": {
     "name": "MTMartin",
-    "email": "info@mtmartin.com"
+    "url": "https://www.mtmartin.com"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com"
+    "url": "https://github.com/MTMartin-com/Context-Colorizer.git"
   },
   "funding": {
     "type": "custom",
@@ -30,7 +35,9 @@
     "organization",
     "rust"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [

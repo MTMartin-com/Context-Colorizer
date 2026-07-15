@@ -1,53 +1,62 @@
-# Context Colorizer 🎨
+# 🎨 Context Colorizer
 
-Visually organize and categorize your workspace files and folders inside Visual Studio Code using a clean, context-menu driven interface. Perfect for huge architectures (like multi-crate Rust workspaces, large frontend apps, or monorepos) where you need to easily differentiate dozens of files with identical names.
+<p align="center">
+  <img src="images/icon.png" width="128" height="128" alt="Context Colorizer Logo" />
+</p>
 
-[![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/MTMartin-com.context-colorizer?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/)
-[![Donate with PayPal](https://img.shields.io/badge/PayPal-Donate%20to%20MTMartin-blue?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/TU_USUARIO_PAYPAL)
+<p align="center">
+  <strong>Visually organize and categorize your workspace files and folders inside VS Code using a clean, context-menu driven interface.</strong>
+</p>
+
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/"><img src="https://img.shields.io/vscode-marketplace/v/MTMartin-com.context-colorizer?style=for-the-badge&logo=visual-studio-code" alt="Marketplace" /></a>
+  <a href="https://paypal.me/MTMartincom"><img src="https://img.shields.io/badge/PayPal-Donate%20to%20MTMartin-blue?style=for-the-badge&logo=paypal&logoColor=white" alt="Donate" /></a>
+</p>
 
 ---
 
 ## 📸 Preview
 
-> 💡 **Tip:** A picture is worth a thousand words. Replace the link below with a GIF showing how you right-click and change a folder's color!
+> 💡 **Tip:** Quickly identify key directory pathways at a glance.
 
-![Context Colorizer Demo](https://raw.githubusercontent.com/MTMartin-com/Context-Colorizer/main/images/demo.gif)
+![Context Colorizer Demo](images/demo.gif)
 
 ---
 
-## ✨ Features
+## ✨ Features Breakdown
 
-*   **Right-Click Integration:** Classify any file or folder by choosing from **6 distinct colors** and **8 function symbols** directly from the explorer context menu.
-*   **Smart Folder Inheritance:** Color a folder, and all its children and files will automatically inherit its visual marker.
-*   **100% Git Safe:** Visual badges use your theme's native color rules. The font colors of your file names remain untouched, keeping your *Modified/Added* Git alerts perfectly visible.
-*   **Zero Config Clutter:** Unlike other extensions, this does not clutter your workspace `settings.json` file. It saves data inside a clean, sandboxed state. If you uninstall it, it leaves no traces.
-*   **Smart File Renaming:** Automatically tracks renamed or moved folders so you never lose your visual classification tags.
-*   **Undo Support:** Press `Cmd + Z` (Mac) or `Ctrl + Z` (Win/Linux) while focusing the explorer to instantly roll back your last classification.
-*   **File Type Automation:** Automatically colorizes config files (`.toml`, `.json`, `.yaml`) and testing structures right out of the box.
+| Feature | How it Helps You | Safe for Git? |
+| :--- | :--- | :---: |
+| **🎨 6 Distinct Colors** | Color-code your environment (Purple, Blue, Green, Orange, Red, Yellow). | Yes |
+| **🏷️ 8 Function Symbols** | Tag items with semantic context (Stars, Gears, Locks, Flames, and more). | Yes |
+| **🌿 Smart Inheritance** | Color a parent folder, and all children/nested files inherit the visualization. | Yes |
+| **🛡️ 100% Sandboxed State** | Saves data locally per workspace without modifying your git status or `settings.json`. | Yes |
+| **🔄 Auto-Rename Tracking** | Keep your tags in sync. Automatically tracks moved or renamed directories. | Yes |
+| **⌨️ Instantly Undoable** | Press `Cmd+Z` (Mac) or `Ctrl+Z` (Windows/Linux) to instantly revert. | Yes |
 
 ---
 
 ## 🛠️ How to Use
 
-1. Open your workspace file tree.
-2. **Right-click** on any folder or file.
-3. Click on **Colorizer: Classify Item...** at the bottom of the menu.
-4. **Step 1:** Select a Color.
-5. **Step 2:** Select a function symbol / icon.
-
-*To undo a mistake, make sure you are focusing the file tree and press `Cmd + Z` / `Ctrl + Z`.*
+1. **Right-click** on any folder or file in the explorer tree.
+2. Select **`Colorizer: Classify Item...`** at the bottom of the context menu.
+3. **Step 1:** Select a color.
+4. **Step 2:** Choose a function badge/icon.
+5. *To revert a classification, ensure the file explorer is focused and press `Cmd+Z` / `Ctrl+Z`.*
 
 ---
 
-## ☕ Have mercy on a tired developer...
+## ☕ Support the Project
 
-Let's be honest: hunting for that one specific `index.tsx` inside a monstrous monorepo or a multi-crate Rust workspace is enough to drive anyone insane. **Context Colorizer** was born out of that pure, unadulterated developer desperation.
+Let's be honest: hunting for that one specific file inside a monstrous monorepo or a multi-crate Rust workspace is enough to drive anyone insane. **Context Colorizer** was built out of that exact developer desperation.
 
-If this extension just saved your sanity, prevented a headache, or simply made your VS Code look 10x cooler... consider throwing a coin to your local developer! 
+If this extension saved your sanity, prevented a headache, or simply made your VS Code look 10x cleaner, consider throwing a coin to your local developer! Every coffee helps keep this extension maintained and bug-free.
 
-My brain cells and my MacBook's fan will eternally thank you. Every coffee (or slice of pizza 🍕) helps me keep this extension maintained, updated, and 100% bug-free.
-
-[![Donate with PayPal](https://img.shields.io/badge/PayPal-Donate%20to%20MTMartin-blue?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/MTMartincom)
+<p align="center">
+  <a href="https://paypal.me/MTMartincom">
+    <img src="https://img.shields.io/badge/PayPal-Donate%20to%20MTMartin-blue?style=for-the-badge&logo=paypal&logoColor=white" alt="PayPal Support" />
+  </a>
+</p>
 
 ---
 
