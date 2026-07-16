@@ -51,6 +51,10 @@ export function activate(context: vscode.ExtensionContext) {
             // --- 1. DIRECT MATCH SPECIFICITY (Highest Priority) ---
             if (mapping[currentPath]) {
                 const data = mapping[currentPath];
+                // Handle explicit manual clear override
+                if (data.color === 'None') {
+                    return undefined; 
+                }
                 return this.buildDecoration(data.color, data.icon, false);
             }
 
@@ -61,6 +65,10 @@ export function activate(context: vscode.ExtensionContext) {
             while (parentPath && parentPath !== rootEvaluatedPath) {
                 if (mapping[parentPath]) {
                     const parentData = mapping[parentPath];
+                    // If a parent folder was explicitly cleared, break the cascade
+                    if (parentData.color === 'None') {
+                        break;
+                    }
                     // Inherit color state but explicitly omit icon badge to prevent file-tree visual clutter
                     return this.buildDecoration(parentData.color, undefined, true);
                 }
@@ -155,7 +163,8 @@ export function activate(context: vscode.ExtensionContext) {
         undoStack.push(cloneMapping(mapping));
 
         if (selectedColor === 'Remove') {
-            delete mapping[uri.fsPath];
+            // Save an explicit override state instead of deleting to prevent fallback system triggers
+            mapping[uri.fsPath] = { color: 'None', icon: '' };
             await context.workspaceState.update('contextColorMappingV3', mapping);
             decorationProvider.refresh();
             return;
@@ -194,6 +203,26 @@ export function activate(context: vscode.ExtensionContext) {
         if (previousMapping) {
             await context.workspaceState.update('contextColorMappingV3', previousMapping);
             decorationProvider.refresh();
+        }
+    });
+
+    /**
+     * Command: Wipe out the entire workspace database state for a full hard reset.
+     */
+    const clearAllWorkspaceCommand = vscode.commands.registerCommand('context-colorizer.clearAllWorkspace', async () => {
+        const confirmation = await vscode.window.showWarningMessage(
+            'Are you sure you want to completely reset all context colors and icons across this workspace?',
+            'Yes, reset everything',
+            'Cancel'
+        );
+        
+        if (confirmation === 'Yes, reset everything') {
+            const mapping = context.workspaceState.get<ColorIconMapping>('contextColorMappingV3') || {};
+            undoStack.push(cloneMapping(mapping));
+            
+            await context.workspaceState.update('contextColorMappingV3', {});
+            decorationProvider.refresh();
+            vscode.window.showInformationMessage('Context Colorizer database state has been cleared.');
         }
     });
 
@@ -239,6 +268,7 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         assignColorCommand,
         undoCommand,
+        clearAllWorkspaceCommand,
         renameWatcher,
         vscode.window.registerFileDecorationProvider(decorationProvider)
     );

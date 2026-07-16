@@ -2,7 +2,7 @@
   "name": "context-colorizer",
   "displayName": "Context Colorizer",
   "description": "Visually classify files and folders with custom colors from the context menu without affecting Git status.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "mtmartin-com",
   "sponsor": {
     "url": "https://paypal.me/MTMartincom"
@@ -10,7 +10,7 @@
   "icon": "images/icon.png",
   "author": {
     "name": "MTMartin",
-    "url": "https://www.mtmartin.com"
+    "url": "https://mtmartin.com"
   },
   "license": "MIT",
   "repository": {
@@ -48,6 +48,10 @@
       {
         "command": "context-colorizer.undo",
         "title": "Colorizer: Undo Last Classification"
+      },
+      {
+        "command": "context-colorizer.clearAllWorkspace",
+        "title": "Colorizer: Reset All Workspace Colors"
       }
     ],
     "menus": {

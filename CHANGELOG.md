@@ -2,6 +2,15 @@
 
 All notable changes to the **Context Colorizer** architecture are documented in this file. This project adheres to Semantic Versioning.
 
+## [1.0.4] - 2026-07-16
+
+### Added
+- **Workspace Management:** Registered a master execution command (`context-colorizer.clearAllWorkspace`) allowing developers to wipe the entire workspace sandbox database state through an interactive safety-prompt confirmation sequence.
+
+### Fixed
+- **Fallback Evaluation Pipeline:** Resolved a logical collision bug where invoking 'Remove All Tags' on structured configurations (`.json`, `.toml`, `.yaml`, `.lock`) would cause the automatic lower-priority filters to instantly re-assign the default orange decorator.
+- **State Negation:** Implemented an explicit `'None'` token override state inside the transaction mapping to strictly enforce execution yielding (`undefined`) back to the native VS Code rendering engine when a user manually strips decorations from a file or directory tree.
+
 ## [1.0.3] - 2026-07-15
 
 ### Fixed
